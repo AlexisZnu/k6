@@ -5,32 +5,26 @@ export const options = {
     //Definir una configuración de etapas, será un array
     stages:[
         {
-            duration: '5m',
+            duration: '30s',
             //es el objetivo que queremos alcanzar
-            taget:100
+            taget:10
         },
         {
             //permanecemos acá durante 30m
-            duration: '30m',
-            taget:100
+            duration: '1m',
+            taget:50
         },
         {
             //durante 5min pasaremos de 100 a 0
-            duration: '5m',
+            duration: '30s',
             taget:0
         }
     ] ,
     
-} 
+}
 
-export default function(){
-    http.get('https://test.k6.io');
+export default function () {
+    let res = http.get('https://test-api.example.com');
+    check(res, { 'status was 200': (r) => r.status === 200 });
     sleep(1);
-
-    http.get('https://test.k6.io/contacts.php');
-
-    sleep(2)
-
-    http.get('https://test.k6.io/news.php');
-    sleep(2)
 }
