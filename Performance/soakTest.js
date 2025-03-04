@@ -7,7 +7,7 @@ export const options = {
         {
             duration: '5m',
             //es el objetivo que queremos alcanzar
-            taget:100
+            target:100
         },
         {
             //permanecemos acá durante 30m
